@@ -49,3 +49,16 @@ h1 {
     font-size: 14px;
     color: #999999;
 }
+#rainButton {
+    margin-top: 20px;
+    padding: 10px 18px;
+
+    background: transparent;
+    border: 1px solid #cccccc;
+
+    color: #555555;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}

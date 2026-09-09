@@ -4,8 +4,8 @@
 
 body {
     margin: 0;
-    background: #111;
-    color: white;
+    background: #F7F7F3;
+    color: #222222;
     font-family: Arial, sans-serif;
 }
 
@@ -33,7 +33,7 @@ h1 {
 
 .message {
     font-size: 18px;
-    opacity: 0.6;
+    color: #777777;
 
     margin-bottom: 60px;
 }
@@ -47,5 +47,5 @@ h1 {
 
 .people {
     font-size: 14px;
-    opacity: 0.4;
+    color: #999999;
 }

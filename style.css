@@ -67,34 +67,70 @@ h1 {
     position: fixed;
     inset: 0;
 
+    overflow: hidden;
     pointer-events: none;
 
-    z-index: 999;
+    z-index: 0;
+}
 
-    background:
-        repeating-linear-gradient(
-            110deg,
-            transparent 0px,
-            transparent 18px,
-            rgba(80, 80, 80, 0.22) 19px,
-            transparent 21px,
-            transparent 38px
-        );
+.drop {
+    position: absolute;
+    top: -30px;
 
-    animation: rainMove 1s linear infinite;
+    width: 1px;
+    height: var(--size);
+
+    background: rgba(80, 80, 80, 0.18);
+
+    transform: rotate(15deg);
+
+    animation: fall var(--duration) linear infinite;
+
+    animation-delay: var(--delay);
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-40px) rotate(15deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(15deg);
+    }
 }
 
 .container {
     position: relative;
-    z-index: 1000;
+    z-index: 1;
 }
 
-@keyframes rainMove {
-    from {
-        transform: translateY(-40px);
-    }
+// ================================
+// 4. 빗방울 만들기
+// ================================
 
-    to {
-        transform: translateY(80px);
-    }
+const rainContainer = document.querySelector(".rain");
+
+for (let i = 0; i < 80; i++) {
+    const drop = document.createElement("span");
+
+    drop.classList.add("drop");
+
+    drop.style.left = `${Math.random() * 100}%`;
+
+    drop.style.setProperty(
+        "--size",
+        `${10 + Math.random() * 20}px`
+    );
+
+    drop.style.setProperty(
+        "--duration",
+        `${0.8 + Math.random() * 1.2}s`
+    );
+
+    drop.style.setProperty(
+        "--delay",
+        `${Math.random() * 2}s`
+    );
+
+    rainContainer.appendChild(drop);
 }

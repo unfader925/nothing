@@ -63,7 +63,6 @@ h1 {
     font-size: 14px;
 }
 
-/* 진짜 개별 빗방울 */
 .rain {
     position: fixed;
     inset: 0;
@@ -74,13 +73,14 @@ h1 {
 
 .drop {
     position: absolute;
-    top: -30px;
-    width: 1px;
-    height: var(--length);
+    top: -40px;
+    width: 2px;
+    height: 24px;
 
-    background: var(--rain-color);
+    background: rgba(80, 80, 80, 0.45);
 
     transform: rotate(18deg);
+
     animation: fall var(--duration) linear infinite;
     animation-delay: var(--delay);
 }

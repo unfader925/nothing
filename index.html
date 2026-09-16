@@ -40,6 +40,29 @@
     </main>
 
     <script src="script.js"></script>
+<script>
+const rainContainer = document.querySelector(".rain");
 
+for (let i = 0; i < 70; i++) {
+    const drop = document.createElement("span");
+
+    drop.className = "drop";
+
+    drop.style.left = Math.random() * 100 + "%";
+
+    drop.style.setProperty(
+        "--duration",
+        (0.6 + Math.random() * 1.0) + "s"
+    );
+
+    drop.style.setProperty(
+        "--delay",
+        (-Math.random() * 2) + "s"
+    );
+
+    rainContainer.appendChild(drop);
+}
+</script>
+    
 </body>
 </html>

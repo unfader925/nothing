@@ -104,33 +104,3 @@ h1 {
     z-index: 1;
 }
 
-// ================================
-// 4. 빗방울 만들기
-// ================================
-
-const rainContainer = document.querySelector(".rain");
-
-for (let i = 0; i < 80; i++) {
-    const drop = document.createElement("span");
-
-    drop.classList.add("drop");
-
-    drop.style.left = `${Math.random() * 100}%`;
-
-    drop.style.setProperty(
-        "--size",
-        `${10 + Math.random() * 20}px`
-    );
-
-    drop.style.setProperty(
-        "--duration",
-        `${0.8 + Math.random() * 1.2}s`
-    );
-
-    drop.style.setProperty(
-        "--delay",
-        `${Math.random() * 2}s`
-    );
-
-    rainContainer.appendChild(drop);
-}

@@ -63,3 +63,38 @@ h1 {
     font-size: 14px;
 }
 
+.rain {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    background:
+        repeating-linear-gradient(
+            110deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(80, 80, 80, 0.22) 19px,
+            transparent 21px,
+            transparent 38px
+        );
+
+    animation: rainMove 1s linear infinite;
+}
+
+.container {
+    position: relative;
+    z-index: 1000;
+}
+
+@keyframes rainMove {
+    from {
+        transform: translateY(-40px);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
+}

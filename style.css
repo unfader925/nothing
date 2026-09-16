@@ -62,3 +62,43 @@ h1 {
 
     font-size: 14px;
 }
+/* 아주 희미한 빗방울 */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            110deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(80, 80, 80, 0.05) 19px,
+            transparent 20px,
+            transparent 38px
+        );
+
+    opacity: 0.35;
+
+    animation: rainMove 1.5s linear infinite;
+
+    z-index: 0;
+}
+
+/* 내용이 빗방울 위에 오도록 */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes rainMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 20px 60px;
+    }
+}

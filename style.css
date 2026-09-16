@@ -63,4 +63,39 @@ h1 {
     font-size: 14px;
 }
 
+/* 진짜 개별 빗방울 */
+.rain {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
 
+.drop {
+    position: absolute;
+    top: -30px;
+    width: 1px;
+    height: var(--length);
+
+    background: var(--rain-color);
+
+    transform: rotate(18deg);
+    animation: fall var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(18deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(18deg);
+    }
+}

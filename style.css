@@ -65,38 +65,23 @@ h1 {
 
 .rain {
     position: fixed;
-    inset: 0;
+    inset: -100px;
 
-    overflow: hidden;
     pointer-events: none;
 
     z-index: 0;
-}
 
-.drop {
-    position: absolute;
-    top: -30px;
+    background:
+        repeating-linear-gradient(
+            110deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(80, 80, 80, 0.22) 19px,
+            transparent 21px,
+            transparent 38px
+        );
 
-    width: 1px;
-    height: var(--size);
-
-    background: rgba(80, 80, 80, 0.18);
-
-    transform: rotate(15deg);
-
-    animation: fall var(--duration) linear infinite;
-
-    animation-delay: var(--delay);
-}
-
-@keyframes fall {
-    from {
-        transform: translateY(-40px) rotate(15deg);
-    }
-
-    to {
-        transform: translateY(110vh) rotate(15deg);
-    }
+    animation: rainMove 1s linear infinite;
 }
 
 .container {
@@ -104,3 +89,12 @@ h1 {
     z-index: 1;
 }
 
+@keyframes rainMove {
+    from {
+        transform: translateY(-40px);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
+}

@@ -68,7 +68,6 @@ h1 {
     inset: -100px;
 
     pointer-events: none;
-
     z-index: 0;
 
     background:
@@ -76,9 +75,17 @@ h1 {
             110deg,
             transparent 0px,
             transparent 18px,
-            rgba(80, 80, 80, 0.22) 19px,
+            rgba(70, 70, 70, 0.18) 19px,
             transparent 21px,
             transparent 38px
+        ),
+        repeating-linear-gradient(
+            110deg,
+            transparent 0px,
+            transparent 19px,
+            rgba(255, 255, 255, 0.08) 20px,
+            transparent 22px,
+            transparent 40px
         );
 
     animation: rainMove 1s linear infinite;

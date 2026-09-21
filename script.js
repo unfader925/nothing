@@ -99,7 +99,7 @@ channel.subscribe(async (status) => {
 
 
 // ================================
-// 3. 빗소리
+// 3. 빗소리 + 비 연동
 // ================================
 
 const rainButton =
@@ -107,6 +107,9 @@ const rainButton =
 
 const rainAudio =
     document.getElementById("rainAudio");
+
+const rain =
+    document.querySelector(".rain");
 
 let isPlaying = false;
 
@@ -120,6 +123,9 @@ rainButton.addEventListener(
             try {
 
                 await rainAudio.play();
+
+                // 빗소리와 함께 비 등장
+                rain.classList.add("active");
 
                 rainButton.textContent =
                     "Stop the rain";
@@ -137,7 +143,11 @@ rainButton.addEventListener(
 
         } else {
 
+            // 빗소리 정지
             rainAudio.pause();
+
+            // 비도 천천히 사라짐
+            rain.classList.remove("active");
 
             rainButton.textContent =
                 "Listen to rain";
@@ -146,4 +156,3 @@ rainButton.addEventListener(
         }
     }
 );
-

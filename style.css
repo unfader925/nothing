@@ -63,39 +63,107 @@ h1 {
     font-size: 14px;
 }
 
+/* =================================
+   NOTHING - Rain
+   ================================= */
+
 .rain {
     position: fixed;
     inset: 0;
+
     overflow: hidden;
     pointer-events: none;
+
     z-index: 0;
 }
 
 .drop {
     position: absolute;
-    top: -40px;
-    width: 2px;
-    height: 24px;
 
-    background: rgba(80, 80, 80, 0.45);
+    top: -60px;
+
+    width: 1px;
+    height: 22px;
+
+    /*
+        difference를 사용하면
+        밝은 배경에서는 어두운 빗방울,
+        어두운 배경에서는 밝은 빗방울처럼 보여서
+        배경이 바뀌어도 잘 보입니다.
+    */
+    background: rgba(255, 255, 255, 0.72);
+    mix-blend-mode: difference;
+
+    border-radius: 999px;
+
+    opacity: 0.55;
 
     transform: rotate(18deg);
 
-    animation: fall var(--duration) linear infinite;
-    animation-delay: var(--delay);
+    animation: fall 1.05s linear infinite;
+
+    will-change: transform, opacity;
 }
 
+
+/* 조금 짧고 빠른 빗방울 */
+.drop:nth-child(3n) {
+    height: 16px;
+    animation-duration: 0.85s;
+    opacity: 0.40;
+}
+
+
+/* 기본 빗방울 */
+.drop:nth-child(3n + 1) {
+    height: 24px;
+    animation-duration: 1.05s;
+    opacity: 0.55;
+}
+
+
+/* 가끔 긴 빗방울 */
+.drop:nth-child(5n) {
+    height: 30px;
+    animation-duration: 1.35s;
+    opacity: 0.32;
+}
+
+
+/* 아주 드물게 조금 굵은 빗방울 */
+.drop:nth-child(7n) {
+    width: 2px;
+    opacity: 0.25;
+}
+
+
+/* 빗방울이 내려오는 움직임 */
+@keyframes fall {
+
+    0% {
+        transform:
+            translate3d(0, -40px, 0)
+            rotate(18deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate3d(-25px, 110vh, 0)
+            rotate(18deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* 글자는 비 위에 표시 */
 .container {
     position: relative;
     z-index: 1;
-}
-
-@keyframes fall {
-    from {
-        transform: translateY(-50px) rotate(18deg);
-    }
-
-    to {
-        transform: translateY(110vh) rotate(18deg);
-    }
 }

@@ -167,3 +167,14 @@ h1 {
     position: relative;
     z-index: 1;
 }
+
+/* 비는 처음에는 조용히 숨겨둔다 */
+.rain {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+/* 빗소리를 켜면 비도 천천히 나타난다 */
+.rain.active {
+    opacity: 1;
+}

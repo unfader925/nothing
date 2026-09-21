@@ -63,6 +63,55 @@ for (let i = 0; i < 70; i++) {
     rainContainer.appendChild(drop);
 }
 </script>
+
+    <script>
+(() => {
+    const rainButton = document.getElementById("rainButton");
+    const rainAudio = document.getElementById("rainAudio");
+    const rain = document.querySelector(".rain");
+
+    if (!rainButton || !rainAudio || !rain) {
+        console.log("비 연동에 필요한 요소를 찾지 못했습니다.");
+        return;
+    }
+
+    // 부드럽게 나타나고 사라지게 함
+    rain.style.transition = "opacity 1.2s ease";
+
+    // 처음에는 비를 보이게 유지
+    rain.style.opacity = "1";
+
+    let playing = false;
+
+    rainButton.addEventListener("click", async () => {
+
+        if (!playing) {
+            try {
+                await rainAudio.play();
+
+                rain.style.opacity = "1";
+
+                rainButton.textContent = "Stop the rain";
+
+                playing = true;
+
+            } catch (error) {
+                console.log("빗소리 재생 실패:", error);
+            }
+
+        } else {
+
+            rainAudio.pause();
+
+            rain.style.opacity = "0";
+
+            rainButton.textContent = "Listen to rain";
+
+            playing = false;
+        }
+    });
+})();
+</script>
     
 </body>
 </html>
